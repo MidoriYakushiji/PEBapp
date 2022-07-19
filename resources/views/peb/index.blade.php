@@ -15,26 +15,46 @@
 @endsection
 
 @section('content')
-@if (Auth::check())
-<p>USER: {{$user->name . ' (' . $user->email . ')'}}</p>
-@else
-<p>※ログインしていません。（<a href="/login">ログイン</a>|
-   <a href="/register">登録</a>）</p>
-@endif
-   <table>
+ @if (Auth::check())
+ <p>こんにちは、{{$user->name . ' (' . $user->email . ')'}}さん。</p>
+ <table>
    <tr>
        <th>name</a></th>
        <th>price</a></th>
        <th>img</a></th>
+       <th>Select</th>
+       <th>Update</th>
+       <th>Delete</th>
    </tr>
    @foreach ($items as $item)
        <tr>
            <td>{{$item->name}}</td>
            <td>{{$item->price}}</td>
-           <td>{{$item->img}}</td>
+           <td><img src="{{$item->img}}" width="200" alt="具材"></td>
+           <td><a href="/peb/show?id={{$item->id}}">詳細</a></td>
+           <td><a href="/peb/edit?id={{$item->id}}">更新</a></td>
+           <td><a href="/peb/del?id={{$item->id}}">削除</a></td>
        </tr>
    @endforeach
    </table>
+ @else
+ <p>※ログインしていません。（<a href="/login">ログイン</a>|
+   <a href="/register">登録</a>）</p>
+   <table>
+      <tr>
+          <th>name</a></th>
+          <th>price</a></th>
+          <th>img</a></th>
+      </tr>
+      @foreach ($items as $item)
+          <tr>
+              <td>{{$item->name}}</td>
+              <td>{{$item->price}}</td>
+              <td><img src="{{$item->img}}" width="200" alt="具材"></td>
+          </tr>
+      @endforeach
+      </table>
+ @endif
 
 @endsection
 

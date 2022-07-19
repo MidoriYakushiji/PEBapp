@@ -9,9 +9,9 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
-
         $items = Ingredient::all();
         $param = ['items' => $items, 'user' => $user];
         return view('peb.index', $param);
     }
+
 }

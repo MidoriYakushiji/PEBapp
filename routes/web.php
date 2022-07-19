@@ -6,10 +6,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('peb/index', 'HomeController@index')->name('home');
 
 Route::get('/peb', 'UserController@index');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('peb', 'HomeController');

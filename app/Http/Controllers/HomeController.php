@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Ingredient;
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     /**
@@ -21,8 +22,27 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $user = Auth::user();
+        $items = Ingredient::all();
+        $param = ['items' => $items, 'user' => $user];
+        return view('peb.index', $param);
+    }
+
+    public function show(Request $request)
+    {
+        $item = Ingredient::where('id', $request->id)->first();
+        return view('peb.show', ['item' => $item]);
+    }
+
+    public function update(Request $request)
+    {
+        $this->validate($request, Ingredient::$rules);
+        $person = Ingredient::find($request->id);
+        $form = $request->all();
+        unset($form['_token']);
+        $person->fill($form)->save();
+        return redirect('/peb');
     }
 }

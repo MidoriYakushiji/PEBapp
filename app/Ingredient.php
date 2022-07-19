@@ -11,4 +11,14 @@ class Ingredient extends Model
        return $this->id . ': ' . $this->name . ' (' . $this->type . ')' . $this->price . $this->img;
     }
     
+    protected $guarded = array('id');
+
+    public static $rules = array(
+       'name' => 'required',
+       'type' => 'required|integer',
+       'price' => 'required|integer|min:0|max:2000',
+       'img' => 'required',
+
+    );
+
 }
