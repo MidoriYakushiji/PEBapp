@@ -30,13 +30,20 @@
             border-bottom:solid 1px #ccc; color:#ccc; }
             th {background-color:#999; color:fff; padding:5px 10px; }
             td {border: solid 1px #aaa; color:#999; padding:5px 10px; }
+
+        .a th{
+            color:white;
+        }
+        .b th{
+            color:white;
+        }
     </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/peb') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

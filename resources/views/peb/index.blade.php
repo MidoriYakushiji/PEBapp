@@ -17,6 +17,7 @@
 @section('content')
  @if (Auth::check())
  <p>こんにちは、{{$user->name . ' (' . $user->email . ')'}}さん。</p>
+ <a href="/peb/add">新規登録</a>
  <table>
    <tr>
        <th>name</a></th>

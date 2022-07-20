@@ -6,7 +6,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('peb/index', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 
 Route::get('/peb', 'UserController@index');
 
@@ -20,3 +20,5 @@ Route::get('peb/edit', 'HomeController@edit');
 Route::post('peb/update', 'HomeController@update');
 Route::get('peb/del', 'HomeController@del');
 Route::post('peb/remove', 'HomeController@remove');
+
+Route::resource('user', 'UserController');

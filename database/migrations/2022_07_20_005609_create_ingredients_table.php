@@ -20,6 +20,8 @@ class CreateIngredientsTable extends Migration
             $table->integer('price');
             $table->string('img');
             $table->timestamps();
+
+            $table->integer('user_id');
         });
     }
 

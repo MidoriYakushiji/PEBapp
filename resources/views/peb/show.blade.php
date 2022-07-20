@@ -7,17 +7,20 @@
 
 @endsection
 @section('content')
+    <div class="a">
    <table>
-   <tr><th>id</th><th>name</th><th>type</th><th>price</th><th>img</th></tr>
+   <tr><th>id</th><th>Name</th><th>type</th><th>price</th><th>img</th><th>Registered by</th></tr>
        <tr>
            <td>{{$item->id}}</td>
            <td>{{$item->name}}</td>
            <td>{{$item->type}}</td>
            <td>{{$item->price}}</td>
            <td>{{$item->img}}</td>
+           <td>{{$item->getData()}}</td>
            
        </tr>
    </table>
+    </div>
 @endsection
 
 @section('footer')
