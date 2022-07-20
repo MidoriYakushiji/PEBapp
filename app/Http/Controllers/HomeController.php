@@ -35,7 +35,12 @@ class HomeController extends Controller
         $item = Ingredient::where('id', $request->id)->first();
         return view('peb.show', ['item' => $item]);
     }
-
+    public function edit(Request $request)
+    {
+       $item = Ingredient::find($request->id);
+       return view('peb.edit', ['item' => $item]);
+    }
+    
     public function update(Request $request)
     {
         $this->validate($request, Ingredient::$rules);
@@ -45,4 +50,17 @@ class HomeController extends Controller
         $person->fill($form)->save();
         return redirect('/peb');
     }
+    public function del(Request $request)
+    {
+        $item = Ingredient::find($request->id);
+        return view('peb.del', ['item' => $item]);
+    }
+
+    public function remove(Request $request)
+    {
+        Ingredient::find($request->id)->delete();
+        return redirect('/peb');
+    }
+
+
 }
