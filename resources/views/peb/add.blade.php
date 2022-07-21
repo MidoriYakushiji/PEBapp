@@ -3,7 +3,7 @@
 @section('title', 'Add')
 
 @section('menu_title')
-新規登録画面
+新規登録ページ
 @endsection
 
 @section('content')
@@ -17,6 +17,7 @@
 </div>
 @endif
    <form action="/peb/create" method="post">
+   <div class="a">
    <table>
       @csrf
     <p>具材登録画面</p>
@@ -27,6 +28,7 @@
     <tr><th>user_id: </th><td><input type="number" name="user_id" value="{{old('user_id')}}"></td></tr>
     <tr><th></th><td><input type="submit" value="新規登録"></td></tr>
    </table>
+   </div>
    </form>
 @endsection
 

@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
 @section('title', 'Edit')
-
 @section('menu_title')
-更新画面
+具材更新ページ
 @endsection
-
 @section('content')
 @if (count($errors) > 0)
 <div>

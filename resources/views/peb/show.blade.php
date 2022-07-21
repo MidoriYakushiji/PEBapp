@@ -3,9 +3,9 @@
 @section('title', 'Show')
 
 @section('menu_title')
-具材詳細画面
-
+具材詳細ページ
 @endsection
+
 @section('content')
     <div class="a">
    <table>
@@ -14,7 +14,7 @@
            <td>{{$item->id}}</td>
            <td>{{$item->name}}</td>
            <td>{{$item->type}}</td>
-           <td>{{$item->price}}</td>
+           <td>{{$item->price}}円</td>
            <td>{{$item->img}}</td>
            <td>{{$item->getData()}}</td>
            

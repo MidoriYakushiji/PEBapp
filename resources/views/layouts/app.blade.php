@@ -42,6 +42,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/peb') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -91,10 +92,16 @@
                 </div>
             </div>
         </nav>
-
+        <p>@yield('menu_title')</p>
+        
         <main class="py-4">
+            <h1>@yield('title')</h1>
             @yield('content')
         </main>
+        
+        <div class="footer">
+            @yield('footer')
+        </div>
     </div>
 </body>
 </html>

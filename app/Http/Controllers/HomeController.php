@@ -29,7 +29,7 @@ class HomeController extends Controller
         $param = ['items' => $items, 'user' => $user];
         return view('peb.index', $param);
     }
-    //新規登録
+    //新規登録 add/create
     public function add(Request $request)
     {
         return view('peb.add');
@@ -43,14 +43,14 @@ class HomeController extends Controller
         $item->fill($form)->save();
         return redirect('/peb');
     }
-    //詳細表示
+    //詳細表示 show
     public function show(Request $request)
     {
         $item = Ingredient::where('id', $request->id)->first();
         return view('peb.show', ['item' => $item]);
     }
 
-    //更新
+    //更新 edit/update
     public function edit(Request $request)
     {
        $item = Ingredient::find($request->id);
@@ -66,7 +66,7 @@ class HomeController extends Controller
         return redirect('/peb');
     }
     
-    //削除
+    //削除 del/remove
     public function del(Request $request)
     {
         $item = Ingredient::find($request->id);

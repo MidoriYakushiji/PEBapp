@@ -9,14 +9,13 @@
 </style>
 @section('title', 'Index')
 
-@section('menubar')
-   @parent
-   インデックスページ
+@section('menu_title')
+具材一覧ページ
 @endsection
 
 @section('content')
  @if (Auth::check())
- <p>こんにちは、{{$user->name . ' (' . $user->email . ')'}}さん。</p>
+ <p>お疲れ様です。{{ $user->name }}さん。</p>
  <a href="/peb/add">新規登録</a>
  <table>
    <tr>
@@ -30,7 +29,7 @@
    @foreach ($items as $item)
        <tr>
            <td>{{$item->name}}</td>
-           <td>{{$item->price}}</td>
+           <td>{{$item->price}}円</td>
            <td><img src="{{$item->img}}" width="200" alt="具材"></td>
            <td><a href="/peb/show?id={{$item->id}}">詳細</a></td>
            <td><a href="/peb/edit?id={{$item->id}}">更新</a></td>

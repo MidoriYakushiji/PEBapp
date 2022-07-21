@@ -3,7 +3,7 @@
 @section('title', 'Del')
 
 @section('menu_title')
-ユーザ情報削除画面
+具材削除ページ
 @endsection
 
 @section('content')

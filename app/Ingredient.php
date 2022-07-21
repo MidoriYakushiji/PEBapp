@@ -16,10 +16,11 @@ class Ingredient extends Model
     public static $rules = array(
        'name' => 'required',
        'type' => 'required|integer',
-       'price' => 'required|integer|min:0|max:2000',
+       'price' => 'required|integer|between:0,2000',
        'img' => 'required',
        'user_id' => 'required|exists:users,id'
     );
+
 
     public function user()
     {
